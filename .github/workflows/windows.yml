@@ -34,6 +34,6 @@ jobs:
       - name: Conan Upload
         uses: grisumbras/conan-upload@v0.3.0
         with:
-          longin: kangwonjin.dev@gmail.com
+          login: kangwonjin.dev@gmail.com
           password: ${{ secrets.SECRET_CONAN_PASSSWORD }}
           url: https://gongfour.jfrog.io/artifactory/api/conan/digitrack
