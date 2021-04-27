@@ -29,18 +29,16 @@ jobs:
         run: pip install conan
 
       - name: Conan Create
-        run: conan create . kang/stable
+        run: conan create .
+
+      - name: Conan Remote
+        run: conan remote add gongfour https://gongfour.jfrog.io/artifactory/api/conan/digitrack
+      
+      - name: Conan User
+        run: conan user kangwonjin.dev@gmail.com -r gongfour -p ${{ secrets.SECRET_CONAN_PASSSWORD }}
 
       - name: Conan Upload
-        uses: grisumbras/conan-upload@v0.3.0
-        with:
-          login: kangwonjin.dev@gmail.com
-          password: ${{ secrets.SECRET_CONAN_PASSSWORD }}
-          url: https://gongfour.jfrog.io/artifactory/api/conan/digitrack
-          name: kang
-          channel: stable
-          remote: gongfour
-
+        run: conan upload liba/0.1.0 -r gongfour --all
 
 
           
