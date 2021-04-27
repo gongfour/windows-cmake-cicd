@@ -37,8 +37,9 @@ jobs:
           login: kangwonjin.dev@gmail.com
           password: ${{ secrets.SECRET_CONAN_PASSSWORD }}
           url: https://gongfour.jfrog.io/artifactory/api/conan/digitrack
-          name: 'kang'
-          channel: 'stable'
+          name: kang
+          channel: stable
+          remote: gongfour
 
 
 
