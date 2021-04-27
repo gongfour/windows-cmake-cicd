@@ -29,7 +29,7 @@ jobs:
         run: pip install conan
 
       - name: Conan Create
-        run: conan create .
+        run: conan create . kang/stable
 
       - name: Conan Upload
         uses: grisumbras/conan-upload@v0.3.0
@@ -37,3 +37,9 @@ jobs:
           login: kangwonjin.dev@gmail.com
           password: ${{ secrets.SECRET_CONAN_PASSSWORD }}
           url: https://gongfour.jfrog.io/artifactory/api/conan/digitrack
+          name: 'kang'
+          channel: 'stable'
+
+
+
+          
