@@ -14,8 +14,8 @@ enable_testing()
 ## export
 include(GenerateExportHeader)
 
-## SHARED_LIB
-option(BUILD_SHARED_LIBS "build_shared_libs" ON)
+## SHARED_LIB OFF
+option(BUILD_SHARED_LIBS "build_shared_libs" OFF)
 
 ###########################################
 # Library
@@ -33,3 +33,9 @@ generate_export_header(liba)
 # Tests
 ###########################################
 add_subdirectory(test)
+
+###########################################
+# Install
+###########################################
+install(TARGETS liba)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include DESTINATION include)
