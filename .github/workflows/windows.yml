@@ -25,12 +25,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Start
-        run: echo Hello world!
-      
+      - name: Install Conan
+        run: pip install conan
+
       - name: Conan Create
         run: conan create .
-#      - name: Run a multi-line script
-#        run: |
-#          echo Add other actions to build,
-#          echo test, and deploy your project.
