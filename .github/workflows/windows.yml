@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Windows
 
 # Controls when the action will run. 
 on:
@@ -25,12 +25,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Start
-        run: echo Hello world!
-      
+      - name: Install Conan
+        run: pip install conan
+
       - name: Conan Create
         run: conan create .
-#      - name: Run a multi-line script
-#        run: |
-#          echo Add other actions to build,
-#          echo test, and deploy your project.
+
+      - name: Conan Remote
+        run: conan remote add upload https://gongfour.jfrog.io/artifactory/api/conan/digitrack
+      
+      - name: Conan User
+        run: conan user kangwonjin.dev@gmail.com -r upload -p ${{ secrets.SECRET_CONAN_PASSSWORD }}
+
+      - name: Conan Search
+        run: echo $(conan search --raw)
+
+      - name: Conan Upload
+        run: conan upload $(conan search --raw) -r upload --all -c
