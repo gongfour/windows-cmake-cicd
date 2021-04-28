@@ -15,7 +15,12 @@ enable_testing()
 include(GenerateExportHeader)
 
 ## SHARED_LIB OFF
-option(BUILD_SHARED_LIBS "build_shared_libs" OFF)
+option(BUILD_SHARED_LIBS "build_shared_libs" ON)
+
+## Output directory
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 ###########################################
 # Library
